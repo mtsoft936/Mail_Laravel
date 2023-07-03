@@ -11,10 +11,8 @@
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="gmail" value="{{ __('Gmail') }}" />
             <div class="relative">
-                <select class="form-input rounded-md shadow-sm mt-1 block w-full cursor-pointer" wire:model="state.gmail">
-                    <option value="delivery">{{ __('TMail Delivery') }}</option>
-                    <option value="imap">{{ __('IMAP') }}</option>
-                </select>
+                <input class="form-input rounded-md shadow-sm mt-1 block w-full cursor-pointer" wire:model="state.gmail">
+                </input>
             </div>
             <x-jet-input-error for="state.gmail" class="mt-2" />
         </div>

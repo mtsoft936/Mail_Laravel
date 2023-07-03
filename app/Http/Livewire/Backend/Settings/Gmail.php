@@ -15,22 +15,22 @@ class Gmail extends Component {
         'password' => ''
     ];
 
-    // public function updatedState($value) {
-    //     $this->emit('engineUpdated', $value);
-    // }
+    public function updatedState($value) {
+        $this->emit('gmailUpdated', $value);
+    }
 
-    // public function mount() {
-    //     $this->state['engine'] = config('app.settings.engine');
-    //     $this->state['delivery'] = config('app.settings.delivery');
-    //     $this->state['delivery']['key'] = base64_encode(config('app.url') . '|' . $this->state['delivery']['key']);
-    // }
+    public function mount() {
+        $this->state['gmail'] = config('app.settings.gmail');
+        // $this->state['password'] = config('app.settings.password');
+        // $this->state['delivery']['key'] = base64_encode(config('app.url') . '|' . $this->state['delivery']['key']);
+    }
 
-    // public function update() {
-    //     $setting = Setting::where('key', 'engine')->first();
-    //     $setting->value = serialize($this->state[$setting->key]);
-    //     $setting->save();
-    //     $this->emit('saved');
-    // }
+    public function update() {
+        $setting = Setting::where('key', 'gmail')->first();
+        // $setting->value = serialize($this->state[$setting->key]);
+        // $setting->save();
+        $this->emit('saved');
+    }
 
     public function render() {
         return view('backend.settings.gmail');

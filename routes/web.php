@@ -27,6 +27,9 @@ Route::middleware(['verify.install'])->group(function () {
     Route::post('unlock', [AppController::class, 'unlock'])->name('unlock');
     Route::middleware('lock')->group(function () {
         Route::get('/', [AppController::class, 'load'])->name('home');
+        Route::get('/gmail', function () {
+            return view('gmail.index');
+        })->name('gmail');
         //App Routes
         Route::get('mailbox/{email?}', [AppController::class, 'mailbox'])->name('mailbox');
         Route::get('message/{messageId}', [AppController::class, 'message'])->name('message');
