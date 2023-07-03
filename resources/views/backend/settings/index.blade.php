@@ -10,6 +10,9 @@
             @livewire('backend.settings.general')
         </div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            @livewire('backend.settings.gmail')
+        </div>
+        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             @livewire('backend.settings.engine')
         </div>
         <div id="imap-settings" class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8" style="{{ config('app.settings.engine') == 'imap' ? '' : 'display: none' }}">

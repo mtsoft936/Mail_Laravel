@@ -4,6 +4,7 @@
   'backend.settings.ads' => 'App\\Http\\Livewire\\Backend\\Settings\\Ads',
   'backend.settings.advance' => 'App\\Http\\Livewire\\Backend\\Settings\\Advance',
   'backend.settings.configuration' => 'App\\Http\\Livewire\\Backend\\Settings\\Configuration',
+  'backend.settings.gmail' => 'App\\Http\\Livewire\\Backend\\Settings\\Gmail',
   'backend.settings.engine' => 'App\\Http\\Livewire\\Backend\\Settings\\Engine',
   'backend.settings.general' => 'App\\Http\\Livewire\\Backend\\Settings\\General',
   'backend.settings.imap' => 'App\\Http\\Livewire\\Backend\\Settings\\Imap',
