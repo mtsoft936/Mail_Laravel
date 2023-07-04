@@ -52,6 +52,30 @@ class AppController extends Controller {
         }
     }
 
+    public function loadgmail() {
+        if (config('app.settings.ad_block_detector_filename') == null || Setting::where('key', 'ad_block_detector_filename')->where('updated_at', '<', Carbon::now()->subDays(3))->count() > 0) {
+            $this->updateAdBlockDetector();
+        }
+        if (file_exists(public_path('themes')) !== TRUE) {
+            symlink(base_path('resources/views/themes'), public_path('themes'));
+        }
+        if (file_exists(public_path('storage')) !== TRUE) {
+            Artisan::call('storage:link', ["--force" => true]);
+        }
+        $homepage = config('app.settings.homepage');
+        if ($homepage == 0) {
+            if (config('app.settings.disable_mailbox_slug')) {
+                return $this->app();
+            }
+            TMail::getEmail(true);
+            return redirect()->route('mailbox');
+        } else {
+            $page = Util::getTranslatedPage($homepage);
+            $page = $this->setHeaders($page);
+            return view('themes.' . config('app.settings.theme') . '.app')->with(compact('page'));
+        }
+    }
+
     public function mailbox($email = null) {
         if ($email) {
             if (config('app.settings.enable_create_from_url')) {
